@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+  background: #f7f7ff;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form,
+#preview {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 5px 0 2px;
+  font-weight: bold;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#preview div {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+#preview div button {
+ width: auto;
+  padding: 6px 12px;
+  background: #007bff;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#preview div button:hover {
+  background-color: #0b7dda;
+}
+
+/* responsive part */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #preview div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #preview div button {
+    margin-top: 5px;
+    width: 100%;
+  }
+}
