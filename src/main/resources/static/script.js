@@ -19,7 +19,7 @@ form.addEventListener("submit", async (e) => {
 	};
 
 	try {
-		const response = await fetch("http://localhost:8080/user", {
+		const response = await fetch("/user", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(user)
@@ -59,7 +59,7 @@ async function editField(field) {
 	if (!newValue) return;
 
 	try {
-		const response = await fetch(`http://localhost:8080/user/${submittedUser.id}?field=${field}&value=${newValue}`, {
+		const response = await fetch(`/user/${submittedUser.id}?field=${field}&value=${newValue}`, {
 			method: "PATCH"
 		});
 
