@@ -103,3 +103,53 @@ button:hover {
     width: 100%;
   }
 }
+
+/* Popup Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  animation: popup 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: #28a745;
+}
+
+.modal-content p {
+  color: #555;
+}
+
+#closeModal, #closeModal1 {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+#closeModal:hover {
+  color: #000;
+}
+
+@keyframes popup {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}

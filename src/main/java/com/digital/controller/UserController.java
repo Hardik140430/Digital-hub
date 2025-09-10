@@ -36,7 +36,8 @@ public class UserController {
 	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 		System.out.println("in usr");
 		User savedUser = userRepository.save(user);
-		return ResponseEntity.ok(savedUser);
+		throw new RuntimeException();
+	
 	}
 
 	@GetMapping("/{id}")
