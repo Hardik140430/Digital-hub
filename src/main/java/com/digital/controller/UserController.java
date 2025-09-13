@@ -32,58 +32,59 @@ public class UserController {
 		this.userRepository = userRepository;
 	}
 
+	// Create User
 	@PostMapping
-	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {		
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 		User savedUser = userRepository.save(user);
 		return ResponseEntity.ok(savedUser);
-	
 	}
 
+	// Get User by ID
 	@GetMapping("/{id}")
 	public ResponseEntity<User> getUser(@PathVariable Long id) {
 		Optional<User> userOptional = userRepository.findById(id);
 		return userOptional.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 
+	// Update a single field
 	@PatchMapping("/{id}")
 	public ResponseEntity<User> updateField(@PathVariable Long id, @RequestParam String field,
 			@RequestParam String value) {
+
 		Optional<User> userOptional = userRepository.findById(id);
-		if (!userOptional.isPresent()) {
+		if (userOptional.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
 
 		User user = userOptional.get();
 
 		switch (field) {
-		case "name":
-			user.setName(value);
-			break;
-		case "age":
-			try {
-				user.setAge(Integer.parseInt(value));
-			} catch (NumberFormatException e) {
-				return ResponseEntity.badRequest().body(null);
-			}
-			break;
-		case "gender":
-			user.setGender(value);
-			break;
-		case "hobby":
-			user.setHobby(value);
-			break;
-		case "email":
-			user.setEmail(value);
+		case "fullName":
+			user.setFullName(value);
 			break;
 		case "phone":
 			user.setPhone(value);
 			break;
+		case "email":
+			user.setEmail(value);
+			break;
+		case "city":
+			user.setCity(value);
+			break;
+		case "favoriteSport":
+			user.setFavoriteSport(value);
+			break;
+		case "favoriteTeam":
+			user.setFavoriteTeam(value);
+			break;
+		case "favoriteSportsIcon":
+			user.setFavoriteSportsIcon(value);
+			break;
 		default:
-			return ResponseEntity.badRequest().body(null);			
+			return ResponseEntity.badRequest().body(null);
 		}
-		
+
 		User updatedUser = userRepository.save(user);
 		return ResponseEntity.ok(updatedUser);
 	}
-
 }
