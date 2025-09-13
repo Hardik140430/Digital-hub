@@ -65,6 +65,7 @@ function showField(step) {
   // Enter key → validate and move on
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
+      e.preventDefault(); // prevent default form submit
       validateAndProceed(input, wrapper, step, field.type);
     }
   });
@@ -75,8 +76,10 @@ function showField(step) {
   // Smooth reveal animation
   setTimeout(() => wrapper.classList.add("active"), 50);
 
-  if (step === 0) input.focus();
+  // Focus new input automatically
+  setTimeout(() => input.focus(), 100);
 }
+
 
 // Validate and move to next
 function validateAndProceed(input, wrapper, step, type) {
@@ -204,7 +207,7 @@ function renderPreview() {
   submitBtn.classList.add("btn-submit");
   submitBtn.onclick = async () => {
     try {
-      const response = await fetch("https://captivating-optimism-production-a709.up.railway.app/user", {
+      const response = await fetch("https://perpetual-blessing-production.up.railway.app/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData)
