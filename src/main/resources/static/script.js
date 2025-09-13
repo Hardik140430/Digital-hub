@@ -207,7 +207,7 @@ function renderPreview() {
   submitBtn.classList.add("btn-submit");
   submitBtn.onclick = async () => {
     try {
-      const response = await fetch("https://perpetual-blessing-production.up.railway.app/user", {
+      const response = await fetch("https://pleasing-purpose-production.up.railway.app/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData)
